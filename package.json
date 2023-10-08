@@ -4,6 +4,10 @@
   "displayName": "OUAF Script Syntax Highlighting",
   "description": "Adds syntax highlighting support for the OUAF Script Language used in Oracle Utilities Application Framework (OUAF) based products, such as PSRM",
   "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brauliobernardo/ouaf-script-syntax-highlighting"
+  },
   "engines": {
     "vscode": "^1.83.0"
   },
