@@ -1,0 +1,64 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "OUAF Script",
+	"patterns": [
+		{ "include": "#keywords" },
+		{ "include": "#strings" },
+		{ "include": "#comments" },
+		{ "include": "#numbers" },
+		{ "include": "#functions" },
+		{ "include": "#constants" },
+		{ "include": "#operators" },
+		{ "match": "\\w+", "name": "entity.xpath.ouafscript" },
+		{ "match": "\\$\\$[a-zA-Z_][a-zA-Z0-9_]*", "name": "variable.global" },
+		{ "match": "\\$[a-zA-Z_][a-zA-Z0-9_]*", "name": "variable.normal" },
+		{ "match": "@", "name": "special.keyword" }
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [
+				{ "name": "keyword.control.ouafscript", "match": "\\b(using|read|replace|add|fastAdd|update|delete|fastUpdate|branch|if|then|else|end-if|for|end-for|terminate|with|error|as|quit)\\b" },
+				{ "name": "keyword.declaration.ouafscript", "match": "\\b(default)\\b" },
+				{ "name": "keyword.control.jump.ouafscript", "match": "\\b(goto|quit)\\b" },
+				{ "name": "keyword.other.ouafscript", "match": "\\b(move|to)\\b" }
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.ouafscript",
+			"begin": "'",
+			"end": "'",
+			"patterns": [
+				{ "name": "constant.character.escape.ouafscript", "match": "\\\\." }
+			]
+		},
+		"comments": {
+			"name": "comment.line.ouafscript",
+			"match": "//.*$"
+		},
+		"numbers": {
+			"name": "constant.numeric.ouafscript",
+			"match": "-?\\d+(\\.\\d+)?"
+		},
+		"functions": {
+			"name": "support.function.ouafscript",
+			"patterns": [
+				{ "match": "\\b(evaluate|substring|string|concat|not|translate|boolean|sum|count|last())\\b", "name": "keyword.function" },
+				{ "match": "\\b(substring-(before|after))\\b", "name": "keyword.function.string" },
+				{ "match": "\\b(invokeBO|declareBO|invokeBS|declareBS|invokeSS|declareSS|invokeMap|declareMap|declareDA|declareBOWithBOGroup|generateBOEditMap|generateBSEditMap|generateSSEditMap|generateDAEditMap|transferControl)\\b(?=\\s+['\"$])", "captures": { "1": { "name": "entity.name.function.ouafscript" } } },
+				{ "match": "\\b(xs:([a-zA-Z][a-zA-Z0-9-]+))(?=\\s*\\()", "captures": { "1": { "name": "entity.name.special-function.ouafscript" } } }
+			]
+		},
+		"constants": {
+			"name": "constant.language.ouafscript",
+			"match": "\\b(true|false|null)\\b"
+		},
+		"operators": {
+			"name": "keyword.operator.ouafscript",
+			"patterns": [
+				{ "name": "keyword.operator.logical.ouafscript", "match": "\\b(and|or|ge|in)\\b" },
+				{ "name": "keyword.operator.comparison.ouafscript", "match": "\\b(div|=|!=|<=|>=|<|>|\\+|\\*|/|\\^)\\b" }
+			]
+		}
+	},
+	"scopeName": "source.ouafscript"
+}

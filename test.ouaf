@@ -1,0 +1,9 @@
+ invokeBO 'Person' using "parm/cust" for add;
+ move "parm/cust/perid" to "account/custid";
+ branch ("string(parm/spouse/name) != $BLANK") goto addSpouse else addAccount;
+ addSpouse: invokeBO 'Person' using "parm/spouse" for add;
+ move "parm/spouse/perid" to "account/spouseid";
+ addAccount: invokeBO 'Account' using "account" for add;
+ branch ("not(account/accountid)") goto error else quit;
+ error: terminate with error (8000, 1001);
+ quit: move "account/accountid" to "parm/accountid";
