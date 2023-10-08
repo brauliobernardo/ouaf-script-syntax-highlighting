@@ -4,7 +4,8 @@ Adds syntax highlighting support for the OUAF Script Language used in Oracle Uti
 
 &nbsp;
 
-![Syntax Highlighting](images/Screenshot.png)
+![Syntax Highlighting](https://raw.githubusercontent.com/brauliobernardo/ouaf-script-syntax-highlighting/main/images/Screenshot.png)
+
 
 ## Features
 
