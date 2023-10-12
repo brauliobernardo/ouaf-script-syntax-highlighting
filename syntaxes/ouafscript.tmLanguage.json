@@ -17,7 +17,7 @@
 	"repository": {
 		"keywords": {
 			"patterns": [
-				{ "name": "keyword.control.ouafscript", "match": "\\b(using|read|replace|add|fastAdd|update|delete|fastUpdate|branch|if|then|else|end-if|for|end-for|terminate|with|error|as|quit)\\b" },
+				{ "name": "keyword.control.ouafscript", "match": "\\b(using|read|get|replace|add|fastAdd|update|delete|fastUpdate|branch|if|then|else|end-if|for|end-for|terminate|with|error|as|quit)\\b" },
 				{ "name": "keyword.declaration.ouafscript", "match": "\\b(default)\\b" },
 				{ "name": "keyword.control.jump.ouafscript", "match": "\\b(goto|quit)\\b" },
 				{ "name": "keyword.other.ouafscript", "match": "\\b(move|to)\\b" }
@@ -42,10 +42,11 @@
 		"functions": {
 			"name": "support.function.ouafscript",
 			"patterns": [
-				{ "match": "\\b(evaluate|substring|string|concat|not|translate|boolean|sum|count|last())\\b", "name": "keyword.function" },
+				{ "match": "\\b(evaluate|substring|string|number|concat|not|translate|boolean|sum|count|last())\\b", "name": "keyword.function" },
 				{ "match": "\\b(substring-(before|after))\\b", "name": "keyword.function.string" },
 				{ "match": "\\b(invokeBO|declareBO|invokeBS|declareBS|invokeSS|declareSS|invokeMap|declareMap|declareDA|declareBOWithBOGroup|generateBOEditMap|generateBSEditMap|generateSSEditMap|generateDAEditMap|transferControl)\\b(?=\\s+['\"$])", "captures": { "1": { "name": "entity.name.function.ouafscript" } } },
-				{ "match": "\\b(xs:([a-zA-Z][a-zA-Z0-9-]+))(?=\\s*\\()", "captures": { "1": { "name": "entity.name.special-function.ouafscript" } } }
+				{ "match": "\\b(xs:([a-zA-Z][a-zA-Z0-9-]+))(?=\\s*\\()", "captures": { "1": { "name": "entity.name.special-function.ouafscript" } } },
+				{ "match": "\\b(fn:([a-zA-Z][a-zA-Z0-9-]+))(?=\\s*\\()", "captures": { "1": { "name": "entity.name.special-function.ouafscript" } } }
 			]
 		},
 		"constants": {
