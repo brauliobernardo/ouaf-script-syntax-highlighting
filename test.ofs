@@ -7,3 +7,9 @@
  branch ("not(account/accountid)") goto error else quit;
  error: terminate with error (8000, 1001);
  quit: move "account/accountid" to "parm/accountid";
+
+ invokeBO 'Account' using "parm/accountid" for get;
+
+ invokeBS 'Account' using "parm/accountid" for get;
+ default $account;
+
